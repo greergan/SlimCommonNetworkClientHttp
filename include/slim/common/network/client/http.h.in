@@ -1,0 +1,22 @@
+#ifndef SLIM_COMMON_NETWORK_CLIENT_HTTP_H
+#define SLIM_COMMON_NETWORK_CLIENT_HTTP_H
+#include <netdb.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#ifdef SLIM_TLS_ENABLED
+#include <mutex>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#endif
+#include <cstdint>
+#include <span>
+#include <string_view>
+#include <vector>
+#include <slim/common/network/client/tcp.h>
+#include <slim/common/network/error_codes.h>
+#define SLIMCOMMONNETWORKCLIENTHTTP_VERSION "@SLIMCOMMONNETWORKCLIENTHTTP_VERSION@"
+#define SLIMCOMMONNETWORKCLIENTHTTP_GIT_HASH "@SLIMCOMMONNETWORKCLIENTHTTP_GIT_HASH@"
+namespace slim::common::network::client::http {
+    class Connection : public slim::common::network::client::tcp::Connection {};
+}
+#endif // SLIM_COMMON_NETWORK_CLIENT_HTTP_H
